@@ -1,0 +1,2 @@
+# alnote
+Cognitive Amplification Platform
