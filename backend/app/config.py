@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     # Database - Updated with your PostgreSQL details
     DATABASE_URL: str = os.getenv(
         "DATABASE_URL", 
-        "postgresql+asyncpg://alnote_insidefour:YOUR_PASSWORD@i7dahw.h.filess.io:5434/alnote_insidefour"
+        "postgresql+asyncpg://alnote_insidefour:4564554ed5e1f03df7090205accd9a4f9640db50@i7dahw.h.filess.io:5434/alnote_insidefour"
     )
     
     # VectorDB - Updated with your Qdrant details

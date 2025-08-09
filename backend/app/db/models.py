@@ -5,8 +5,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from datetime import datetime
 import uuid
-
-Base = declarative_base()
+from .session import Base
 
 class User(Base):
     __tablename__ = 'users'
@@ -54,7 +53,7 @@ class Note(Base):
     file_size = Column(Integer, nullable=True)  # File size in bytes
     
     # Metadata and categorization
-    note_metadata = Column(JSON, nullable=True)
+    note_data = Column(JSON, nullable=True)  # Renamed from note_metadata
     tags = Column(JSON, nullable=True)  # Array of tags
     category = Column(String, nullable=True)
     priority = Column(Integer, default=0)  # 0=low, 1=medium, 2=high
@@ -146,6 +145,7 @@ class NoteVersion(Base):
     # Change tracking
     change_type = Column(String, nullable=False)  # 'create', 'update', 'delete'
     change_description = Column(String, nullable=True)
+    change_data = Column(JSON, nullable=True)  # Renamed from metadata
     
     # Timestamps
     created_at = Column(DateTime(timezone=True), server_default=func.now())
